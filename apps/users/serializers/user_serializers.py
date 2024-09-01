@@ -18,6 +18,21 @@ class UserListSerializer(serializers.ModelSerializer):
         )
 
 
+class UserDetailSerializer(serializers.ModelSerializer):
+    project = serializers.StringRelatedField()
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'position',
+            'project',
+        )
+
+
 class RegisterUserSerializer(serializers.ModelSerializer):
     re_password = serializers.CharField(
         max_length=128,
